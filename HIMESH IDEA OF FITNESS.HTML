@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow"> <!-- Ensure Google indexes this page -->
+    <meta name="description" content="Goal Fitness helps you create personalized fitness routines based on your time and goal. Achieve your fitness targets with tailored plans for weight loss, strength training, and muscle building.">
+    <meta name="keywords" content="fitness, fitness goals, personalized fitness, weight loss, strength training, muscle building, workout routines">
+    
+    <!-- Open Graph meta tags for social media sharing -->
+    <meta property="og:title" content="Goal Fitness: Personalized Fitness Goals">
+    <meta property="og:description" content="Goal Fitness helps you create personalized fitness routines based on your time and goal. Achieve your fitness targets with tailored plans for weight loss, strength training, and muscle building.">
+    <meta property="og:image" content="https://example.com/your-image.jpg"> <!-- Replace with a relevant image URL -->
+    <meta property="og:url" content="https://yourwebsite.com">
+    
+    <!-- Structured Data for SEO (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Goal Fitness: Personalized Fitness Goals",
+      "description": "Goal Fitness helps you create personalized fitness routines based on your time and goal.",
+      "url": "https://yourwebsite.com",
+      "mainEntityOfPage": "https://yourwebsite.com"
+    }
+    </script>
+
+    <title>Goal Fitness: Personalized Fitness Goals</title> <!-- Title of the page, visible on Google search -->
+    <link rel="canonical" href="https://yourwebsite.com"> <!-- Ensures Google indexes the correct version of your page -->
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e7f7e7;
+            border-radius: 5px;
+        }
+
+        .result h3 {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Goal Fitness: Personalized Fitness Goals</h1>
+</header>
+
+<div class="container">
+    <h2>Enter your details to get your personalized fitness routine:</h2>
+
+    <form id="fitnessForm">
+        <label for="goal">What is your fitness goal?</label>
+        <select id="goal">
+            <option value="weight_loss">Weight Loss</option>
+            <option value="strength_training">Strength Training</option>
+            <option value="muscle_building">Muscle Building</option>
+        </select>
+
+        <label for="time">How much time can you dedicate daily (in minutes)?</label>
+        <input type="number" id="time" min="1" max="120" placeholder="Enter minutes" required>
+
+        <button type="button" onclick="generateRoutine()">Generate Routine</button>
+    </form>
+
+    <div id="result" class="result" style="display:none;">
+        <h3>Your Personalized Fitness Routine:</h3>
+        <p id="routineText"></p>
+    </div>
+</div>
+
+<script>
+    function generateRoutine() {
+        var goal = document.getElementById("goal").value;
+        var time = parseInt(document.getElementById("time").value);
+        var resultText = "";
+
+        if (goal === "weight_loss") {
+            if (time <= 20) {
+                resultText = "Your routine: \n- Warm-up: 5 minutes\n- Cardio: 10 minutes (jump rope, running in place)\n- Bodyweight exercises: 5 minutes (squats, lunges, push-ups)";
+            } else if (time <= 60) {
+                resultText = "Your routine: \n- Warm-up: 5 minutes\n- Cardio: 20 minutes (running, cycling, brisk walking)\n- Full body workout: 15 minutes (push-ups, squats, planks, burpees)\n- Cool down: 10 minutes (stretching)";
+            } else if (time <= 120) {
+                resultText = "Your routine: \n- Warm-up: 10 minutes\n- Cardio: 30 minutes (running, cycling, high-intensity interval training)\n- Full body workout: 30 minutes (lunges, squats, push-ups, burpees, planks, jumping jacks)\n- Cool down: 10 minutes (stretching)";
+            }
+        } else if (goal === "strength_training") {
+            if (time <= 20) {
+                resultText = "Your routine: \n- Warm-up: 5 minutes\n- Bodyweight exercises: 15 minutes (push-ups, squats, lunges, planks)";
+            } else if (time <= 60) {
+                resultText = "Your routine: \n- Warm-up: 5 minutes\n- Strength training: 25 minutes (dumbbell squats, lunges, shoulder press, triceps dips)\n- Core workout: 15 minutes (planks, sit-ups, Russian twists)\n- Cool down: 10 minutes (stretching)";
+            } else if (time <= 120) {
+                resultText = "Your routine: \n- Warm-up: 10 minutes\n- Strength training: 40 minutes (deadlifts, squats, bench press, overhead press, pull-ups)\n- Core workout: 30 minutes (Russian twists, crunches, leg raises, side planks)\n- Cool down: 10 minutes (stretching)";
+            }
+        } else if (goal === "muscle_building") {
+            if (time <= 20) {
+                resultText = "Your routine: \n- Warm-up: 5 minutes\n- Bodyweight exercises: 15 minutes (push-ups, squats, triceps dips)";
+            } else if (time <= 60) {
+                resultText = "Your routine: \n- Warm-up: 5 minutes\n- Muscle building: 25 minutes (deadlifts, squats, chest press, dumbbell rows)\n- Core workout: 15 minutes (leg raises, planks, crunches)\n- Cool down: 10 minutes (stretching)";
+            } else if (time <= 120) {
+                resultText = "Your routine: \n- Warm-up: 10 minutes\n- Muscle building: 40 minutes (deadlifts, squats, bench press, pull-ups, triceps dips)\n- Core workout: 30 minutes (leg raises, side planks, Russian twists, crunches)\n- Cool down: 10 minutes (stretching)";
+            }
+        }
+
+        // Display the result
+        document.getElementById("routineText").innerText = resultText;
+        document.getElementById("result").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
